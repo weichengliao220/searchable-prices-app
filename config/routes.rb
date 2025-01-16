@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'prices/index'
   get 'admin/import'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -8,4 +9,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  root "prices#index"
+  resources :prices, only: [:index]
+
+  namespace :admin do
+    get 'import', to: 'admin#import'
+    post 'import', to: 'admin#import'
+  end
 end
