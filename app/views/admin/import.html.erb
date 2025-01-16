@@ -1,0 +1,6 @@
+<h1>Import Prices</h1>
+
+<%= form_tag admin_import_path, method: :post, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
