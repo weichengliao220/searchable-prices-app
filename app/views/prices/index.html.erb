@@ -5,7 +5,15 @@
 
 <h2>Search Results</h2>
 <ul>
-  <% @prices.each do |price| %>
-    <li><%= price.model_number %> - <%= price.retail_price %> - <%= price.cost_price %></li>
+  <% if @prices.any? %>
+    <% @prices.each do |price| %>
+      <li>
+        Model Number: <%= price.model_number %>
+        Retail Price: <%= price.retail_price %>
+        Cost: <%= price.cost_price %></li>
+      </li>
+    <% end %>
+  <% else %>
+    <p>No results found.</p>
   <% end %>
 </ul>
